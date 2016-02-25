@@ -10,37 +10,62 @@ The classifer can also be set of change the Threshold value "T" for each class.
 
 For instance, Let us consider a simple "hand written numeral classifier". The job of this classifier is to identifiy hand-written numerals based on the inspection of some images , each of which have a number written on them along with the digit they represent (eg 7: http://www.urbanthreads.com/productImages/regularSize/UTH4670.jpg )
 Common sense dictates that the classifier is likely to quickly learn numbers such as 8 , 2, 0 and 3. However, it would likely confuse 1 with 7 and 4 with 9. The frugal-classifier will realize that it is wrongly classifying 1 and 7 and would demand more training data for 1 and 7, or 4 and 9. It will try to make a second level classifier that may even use a different learning methodology to classify these numbers. It will continue this for each class it doesnt recognize correctly. Thus, 
-
+```
 //Psuedocode:
-register(originalclassifier,level);
-do while (pi>T) 
+level=0;
+frugal_classify.register(frugal_classify,level);
+//initial level=0 and frugal classify is the main classifier that keeps appending improvements it learns. Initially, the classifier registers itself with a level 0, 
+//where each level represents a new addition.
+HashMap map_clsfr2methdlgy(classifer,List<methdlgy_lredy_used>);
+errordetails err_det_obj{
+image_reference;
+actualclass;
+count_of_incorrect_observations;
+}
+HashMap errorMap(predictedclass,err_det_obj);
+double [] p_class;
+int count_obs=0;
+String[] unstablebag;
+do while ((pi∈ p_class)>T) 
 {
-  while(count<A)
+  while(count_obs<A)
   {
-    predicted_result=frugal_classify(digit);//initial level=0
+    digit=getnextdata(dataset,unstablebag);
+    predicted_result=frugal_classify(digit);
     if (predicted_result!=actual_result)
     {
-    errorMap.put(image,predictedclass,actualclass,count_of_incorrect_observations+1);
+    errorMap.put(image_reference,predictedclass,actualclass,count_of_incorrect_observations+1);
     }
   }
-  count=0;
+  count_obs=0;
    for each class c∈{c0,c1,c2..c9}
    {
       if (function(errorMap.get(c))<T)
         {
-        
-        for each distinct classification method m
+        unstablebag.add(c);
+        if(c.getPriority()<MAX_PRIORITY)
+          {
+            c.setPriority(c.getPriority()+1);  
+          }
+        /* //Future impementation
+        if(c.getPriority()==MAX_PRIORITY)
+          for each distinct classification method m∈M-{map_clsfr2methdlgy.get(c)}
           {
           temp=make_new_temp_classifier(m);
+          map_clsfr2methdlgy.put(c,m);
           if (test_classifier(temp,c,errorMap)>T)
             {
             level++;
             frugal_classify.register(temp,level);
             }
           }
+          */
+        
         }
+        
     }
   }
+```
 if level 1 of the classifer recognizes the number to be either 1 or 7, it passes this observation to level 2 classifier. 
 else if, it recognizes the digit to be 4 or 9, it passes the observation to level 3 classifier.
 .
