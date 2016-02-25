@@ -9,7 +9,12 @@ The Un-safe classes, however, are regularly scrutinized and given much more "tra
 The classifer can also be set of change the Threshold value "T" for each class.
 
 For instance, Let us consider a simple "hand written numeral classifier". The job of this classifier is to identifiy hand-written numerals based on the inspection of some images , each of which have a number written on them along with the digit they represent (eg 7: http://www.urbanthreads.com/productImages/regularSize/UTH4670.jpg )
-Common sense dictates that the classifier is likely to quickly learn numbers such as 8 , 2, 0 and 3. However, it would likely confuse 1 with 7 and 4 with 9. The frugal-classifier will realize that it is wrongly classifying 1 and 7 and would demand more training data for 1 and 7, or 4 and 9. It will try to make a second level classifier that may even use a different learning methodology to classify these numbers. It will continue this for each class it doesnt recognize correctly. Thus, 
+Common sense dictates that the classifier is likely to quickly learn numbers such as 8 , 2, 0 and 3. However, it would likely confuse 1 with 7 and 4 with 9. The frugal-classifier will realize that it is wrongly classifying 1 and 7 and would demand more training data for 1 and 7, or 4 and 9. It will try to make a second level classifier that may even use a different learning methodology to classify these numbers. It will continue this for each class it doesnt recognize correctly. Thus, if level 1 of the classifer recognizes the number to be either 1 or 7, it passes this observation to level 2 classifier. 
+else if, it recognizes the digit to be 4 or 9, it passes the observation to level 3 classifier.
+.
+.
+.
+until all classes are properly classfied
 ```
 //Psuedocode:
 level=0;
@@ -67,8 +72,3 @@ do while ((∀pi∈ p_class) pi>T)
     }
   }
 ```
-if level 1 of the classifer recognizes the number to be either 1 or 7, it passes this observation to level 2 classifier. 
-else if, it recognizes the digit to be 4 or 9, it passes the observation to level 3 classifier.
-.
-.
-.
