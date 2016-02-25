@@ -14,19 +14,20 @@ Common sense dictates that the classifier is likely to quickly learn numbers suc
 //Psuedocode:
 level=0;
 frugal_classify.register(frugal_classify,level);
-//initial level=0 and frugal classify is the main classifier that keeps appending improvements it learns. Initially, the classifier registers itself with a level 0, 
-//where each level represents a new addition.
+//frugal classify is the main classifier that keeps appending improvements based on what it learns. 
+//Initially, the classifier registers itself with a level 0, 
+//each level represents a new addition/improvement.
 HashMap map_clsfr2methdlgy(classifer,List<methdlgy_lredy_used>);
 errordetails err_det_obj{
 image_reference;
-actualclass;
 count_of_incorrect_observations;
 }
-HashMap errorMap(predictedclass,err_det_obj);
+HashMap errorMap(predictedclass+actualclass,err_det_obj);
+// predictedclass+actualclass both are part of the key.
 double [] p_class;
 int count_obs=0;
 String[] unstablebag;
-do while ((pi∈ p_class)>T) 
+do while ((∀pi∈ p_class) pi>T) 
 {
   while(count_obs<A)
   {
@@ -34,7 +35,7 @@ do while ((pi∈ p_class)>T)
     predicted_result=frugal_classify(digit);
     if (predicted_result!=actual_result)
     {
-    errorMap.put(image_reference,predictedclass,actualclass,count_of_incorrect_observations+1);
+    errorMap.put(<predictedclass,actualclass>,<image_reference,count_of_incorrect_observations+1>);
     }
   }
   count_obs=0;
