@@ -13,7 +13,7 @@ Common sense dictates that the classifier is likely to quickly learn numbers suc
 
 //Psuedocode:
 register(originalclassifier,level);
-while(p0>T and p1>T and p2>T ..p9>T)
+do while (pi>T) 
 {
   while(count<A)
   {
