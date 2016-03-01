@@ -1,4 +1,4 @@
-# Frugal-Classifier
+# Frugal-Classifier - A simplified explanation
 One major hurdle faced while Machine Learning is the accumulation and efficient utilization of test and training data .
 It is often, a very expensive, time consuming and combursome process.
 And even after a great deal of effort has been put into collecting this data, a uniformaly accurate classifier can not be guaranteed. The Classifier implemented here, severely reduces the above mentioned burden by performing classification "on the fly" and using a feedback system to check the nature of training data to improve it's own accuracy ! The classifer works on the principle of multi-level classification and "best of three" principle to sort observations into one or more classes. It regularly identifies classes with a low accuracy of classification ( below a pre-defined threshold) and feeds them more training data to improve their accuracy . It needs training data that is or can be sorted accordng to the actual observations 
