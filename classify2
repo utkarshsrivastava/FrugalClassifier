@@ -1,0 +1,56 @@
+level=0;
+frugal_classify.register(frugal_classify,level);
+#//frugal classify is the main classifier that keeps appending improvements based on what it learns. 
+#//Initially, the classifier registers itself with a level 0, 
+#//each level represents a new addition/improvement.
+HashMap map_clsfr2methdlgy(classifer,List<methdlgy_lredy_used>);
+class errordetails {
+image_reference;
+count_of_incorrect_observations;
+}
+class FClassifier
+errordetails err_det_obj;
+HashMap errorMap(predictedclass+actualclass,err_det_obj);
+# predictedclass+actualclass both are part of the key.
+double [] p_class;
+int count_obs=0;
+String[] unstablebag;
+do while ((∀pi∈ p_class) pi>T) 
+{
+  while(count_obs<A)
+  {
+    digit=getnextdata(dataset,unstablebag);
+    predicted_result=frugal_classify(digit);
+    if (predicted_result!=actual_result)
+    {
+    errorMap.put(<predictedclass,actualclass>,<image_reference,count_of_incorrect_observations+1>);
+    }
+  }
+  count_obs=0;
+   for each class c∈{c0,c1,c2..c9}
+   {
+      if (function(errorMap.get(c))<T)
+        {
+        unstablebag.add(c);
+        if(c.getPriority()<MAX_PRIORITY)
+          {
+            c.setPriority(c.getPriority()+1);  
+          }
+ """       #Future impementation
+        if(c.getPriority()==MAX_PRIORITY)
+          for each distinct classification method m∈M-{map_clsfr2methdlgy.get(c)}
+          {
+          temp=make_new_temp_classifier(m);
+          map_clsfr2methdlgy.put(c,m);
+          if (test_classifier(temp,c,errorMap)>T)
+            {
+            level++;
+            frugal_classify.register(temp,level);
+            }
+          }
+          """
+
+        }
+
+    }
+  }
