@@ -55,14 +55,16 @@ do while ((∀pi∈ p_class) pi>T)
           }
         /* //Future impementation
         if(c.getPriority()==MAX_PRIORITY)
+          Tmax=0;
           for each distinct classification method m∈M-{map_clsfr2methdlgy.get(c)}
           {
           temp=make_new_temp_classifier(m);
           map_clsfr2methdlgy.put(c,m);
-          if (test_classifier(temp,c,errorMap)>T)
+          if (test_classifier(temp,c,errorMap)>Tmax)
             {
             level++;
             frugal_classify.register(temp,level);
+            Tmax=T;
             }
           }
           */
