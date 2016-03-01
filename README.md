@@ -60,7 +60,8 @@ do while ((∀pi∈ p_class) pi>T)
           {
           temp=make_new_temp_classifier(m);
           map_clsfr2methdlgy.put(c,m);
-          if (test_classifier(temp,c,errorMap)>Tmax)
+          T=test_classifier(temp,c,errorMap;
+          if (T>Tmax)
             {
             level++;
             frugal_classify.register(temp,level);
